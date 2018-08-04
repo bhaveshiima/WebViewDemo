@@ -14,6 +14,12 @@ class MainActivity : AppCompatActivity() {
 
         wview.webViewClient = WebViewClient() //set on webview
 
+        //enable javascript in webview - youtube or banner in mostly website [ START ]
+        wview.settings.javaScriptEnabled = true  // Enable javascript
+        wview.settings.displayZoomControls = true  // enable zoom control
+        //enable javascript in webview - youtube or banner in mostly website [ ENE ]
+
+
         srch.setOnClickListener({
             wview.loadUrl(et1.text.toString())
         })
