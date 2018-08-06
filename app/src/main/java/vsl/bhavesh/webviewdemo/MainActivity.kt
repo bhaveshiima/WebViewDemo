@@ -4,8 +4,10 @@ import android.app.ProgressDialog
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.webkit.JavascriptInterface
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -33,6 +35,9 @@ class MainActivity : AppCompatActivity() {
              }
          }
 
+        // Add Javascript Interface
+
+        wview.addJavascriptInterface(this   , "login_interface")
 
         //enable javascript in webview - youtube or banner in mostly website [ START ]
         wview.settings.javaScriptEnabled = true  // Enable javascript
@@ -57,6 +62,17 @@ class MainActivity : AppCompatActivity() {
             wview.loadUrl("http://www.youtube.com")
         })
 
+        html.setOnClickListener {
+            wview.loadUrl("file:///android_asset/login.html")
+        }
+
 
     } // onCreate()
+
+    //Create login function
+    @JavascriptInterface
+    fun login(email:String, pass:String){
+        Toast.makeText(this , "$email \n  $pass", Toast.LENGTH_SHORT).show()
+    }
+
 } // mainActivity()

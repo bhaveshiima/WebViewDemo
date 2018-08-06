@@ -1,7 +1,18 @@
 <html>
-    <body bgcolor="red">
+    <head>
+        <script language="JavaScript">
+            function login(){
+                var email = document.getElementById('email').value
+                var pass = document.getElementById('pass').value
+                login_interface.login(email,pass)
+            }
+        </script>
+
+    </head>
+
+    <body bgcolor="#045">
         <center>
-            <table>
+            <table border="1">
                 <tr>
                     <td colspan="2"><h3>Login Form</h3></td>
                 </tr>
@@ -17,7 +28,7 @@
                 </tr>
 
                 <tr>
-                    <td colspan="2"><input type="button" name="btnLogin" value="Login"></td>
+                    <td colspan="2"><input type="button" name="btnLogin" value="Login" onclick="login()"></td>
                 </tr>
 
             </table>
